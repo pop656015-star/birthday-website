@@ -1,1 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#050505;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#ff4d88;
+    border-radius:10px;
+}
+
+/* PARTICLES */
+
+.stars{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:-1;
+    overflow:hidden;
+}
+
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    animation: twinkle 5s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{opacity:0.2;}
+    to{opacity:1;}
+}
+
+/* HERO SECTION */
+
+.hero{
+    height:100vh;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:url('img/hero.jpg') center/cover no-repeat;
+    transform:scale(1.1);
+    filter:brightness(0.35);
+}
+
+.hero-content{
+    position:relative;
+    z-index:5;
+    animation:fadeUp 2s ease;
+}
+
+.hero h1{
+    font-size:7rem;
+    font-weight:700;
+    letter-spacing:5px;
+    text-shadow:0 0 30px rgba(255,255,255,0.3);
+}
+
+.hero h2{
+    margin-top:20px;
+    font-size:2rem;
+    font-weight:300;
+    opacity:0.9;
+}
+
+.hero p{
+    margin-top:40px;
+    font-size:1rem;
+    letter-spacing:4px;
+    animation:float 2s infinite ease-in-out;
+}
+
+@keyframes fadeUp{
+    from{
+        transform:translateY(80px);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+@keyframes float{
+    0%{transform:translateY(0px);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0px);}
+}
+
+/* SECTION */
+
+.section{
+    min-height:100vh;
+    padding:120px 10%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    position:relative;
+}
+
+.section-title{
+    font-size:4rem;
+    margin-bottom:60px;
+    text-align:center;
+}
+
+.section-text{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    line-height:2.2;
+    font-size:1.3rem;
+    color:#ddd;
+}
+
+/* GLASS CARDS */
+
+.cards{
+    display:flex;
+    gap:30px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-top:80px;
+}
+
+.card{
+    width:320px;
+    padding:40px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.08);
+    transition:0.5s ease;
+}
+
+.card:hover{
+    transform:translateY(-15px) scale(1.03);
+    box-shadow:0 20px 50px rgba(255,77,136,0.2);
+}
+
+.card h3{
+    font-size:2rem;
+    margin-bottom:20px;
+}
+
+.card p{
+    line-height:2;
+    color:#ddd;
+}
+
+/* MEMORY GALLERY */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+    margin-top:70px;
+}
+
+.gallery img{
+    width:100%;
+    height:420px;
+    object-fit:cover;
+    border-radius:25px;
+    transition:0.6s ease;
+    cursor:pointer;
+    filter:brightness(0.9);
+}
+
+.gallery img:hover{
+    transform:scale(1.04);
+    filter:brightness(1.05);
+}
+
+/* TIMELINE */
+
+.timeline{
+    position:relative;
+    margin-top:100px;
+}
+
+.timeline::before{
+    content:'';
+    position:absolute;
+    left:50%;
+    top:0;
+    width:3px;
+    height:100%;
+    background:rgba(255,255,255,0.2);
+}
+
+.timeline-item{
+    width:50%;
+    padding:40px;
+    position:relative;
+}
+
+.timeline-item img{
+    width:100%;
+    border-radius:25px;
+}
+
+.timeline-item p{
+    margin-top:20px;
+    line-height:2;
+    color:#ccc;
+}
+
+.left{
+    left:0;
+}
+
+.right{
+    left:50%;
+}
+
+/* FINAL SECTION */
+
+.final{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.final::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:url('img/final.jpg') center/cover no-repeat;
+    filter:brightness(0.3);
+    transform:scale(1.1);
+}
+
+.final-content{
+    position:relative;
+    z-index:5;
+}
+
+.final h1{
+    font-size:7rem;
+    margin-bottom:30px;
+}
+
+.final h2{
+    font-size:2rem;
+    font-weight:300;
+}
+
+.final p{
+    margin-top:40px;
+    font-size:1.3rem;
+    line-height:2;
+    max-width:800px;
+}
+
+/* FLOATING HEARTS */
+
+.hearts span{
+    position:absolute;
+    bottom:-100px;
+    color:#ff4d88;
+    animation:rise 10s linear infinite;
+    font-size:25px;
+}
+
+@keyframes rise{
+    from{
+        transform:translateY(0) rotate(0deg);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* MUSIC BUTTON */
+
+.music-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:999;
+    background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.2);
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    backdrop-filter:blur(10px);
+}
+
+.music-btn:hover{
+    background:#ff4d88;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .hero h1,
+    .final h1{
+        font-size:3.5rem;
+    }
+
+    .hero h2,
+    .final h2{
+        font-size:1.3rem;
+    }
+
+    .section-title{
+        font-size:2.5rem;
+    }
+
+    .timeline::before{
+        left:20px;
+    }
+
+    .timeline-item{
+        width:100%;
+        left:0 !important;
+        padding-left:60px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<!-- BACKGROUND MUSIC -->
+
+<audio id="bgMusic" autoplay loop>
+    <source src="music/song.mp3" type="audio/mp3">
+</audio>
+
+<div class="music-btn" onclick="toggleMusic()">
+    🎵
+</div>
+
+<!-- STARS -->
+
+<div class="stars"></div>
+
+<!-- HERO -->
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Happy Birthday</h1>
+        <h2>To The Most Beautiful Soul ❤️</h2>
+        <p>SCROLL DOWN</p>
+    </div>
+</section>
+
+<!-- SECTION 1 -->
+
+<section class="section">
+
+    <h2 class="section-title">Today Is Your Day ✨</h2>
+
+    <p class="section-text">
+        Out of billions of people in this world...
+        somehow the universe created someone exactly like you.
+        and somehow we meet .... What a coincidence isn't
+
+        <br><br>
+
+        Someone who changed me , someone who taught me how to behave ,
+        Someone whose smile feels brighter than the stars,
+               Someone who is my bestie 
+    </p>
+
+    <div class="gallery">
+        <img src="img/a2.jpeg">
+        <img src="img/a7.jpeg">
+        <img src="img/a4.jpeg">
+    </div>
+
+</section>
+
+<!-- SECTION 2 -->
+
+<section class="section">
+
+    <h2 class="section-title">Things About You 💫</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Your Smile</h3>
+            <p>
+                Your smile genuinely changes the atmosphere around you.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Your Energy</h3>
+            <p>
+                when you yapp i feel like i am with someone who is like me an IDIOT 
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Your Presence</h3>
+            <p>
+                Jada to nhi but haan you help me a lot so you relly matters 
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- TIMELINE -->
+
+<section class="section">
+
+    <h2 class="section-title">Favorite Memories 📸</h2>
+
+    <div class="timeline">
+
+        <div class="timeline-item left">
+            <img src="img/a9.jpeg">
+            <p>
+                this day was one of the best , you know maine tumahri gndi gndi pics bhi click ki
+            </p>
+        </div>
+
+        <div class="timeline-item right">
+            <img src="img/a8.jpeg">
+            <p>
+                A crazzy chatpata person who makes me happy 
+            </p>
+        </div>
+
+        <div class="timeline-item left">
+            <img src="img/a1.jpeg">
+            <p>
+                iska capton ?????? Someone how is beuatifull then all my celebrity crushes 
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FINAL -->
+
+<section class="final">
+
+    <div class="final-content">
+
+        <h1>Happy Birthday 🎂</h1>
+
+        <h2>You deserve the best .</h2>
+
+        <p>
+           From start of 2026 till  now it was not that great. 
+           I hope and pray that from now you always remain happy .
+           You recieve all the warmth and happiness  of this world 
+
+            <br><br>
+
+            Never stop being you.
+            You are my bestie and i hope we remain bestie for life doesn't matters what 
+        </p>
+
+    </div>
+
+    <div class="hearts">
+        <span style="left:10%; animation-delay:0s;">❤</span>
+        <span style="left:20%; animation-delay:2s;">❤</span>
+        <span style="left:35%; animation-delay:4s;">❤</span>
+        <span style="left:50%; animation-delay:1s;">❤</span>
+        <span style="left:65%; animation-delay:3s;">❤</span>
+        <span style="left:80%; animation-delay:5s;">❤</span>
+    </div>
+
+</section>
+
+<script>
+
+/* MUSIC CONTROL */
+
+const music = document.getElementById('bgMusic');
+
+function toggleMusic(){
+
+    if(music.paused){
+        music.play();
+    }
+    else{
+        music.pause();
+    }
+}
+
+/* STARS */
+
+const stars = document.querySelector('.stars');
+
+for(let i=0;i<150;i++){
+
+    let star = document.createElement('div');
+    star.classList.add('star');
+
+    star.style.left = Math.random()*100 + 'vw';
+    star.style.top = Math.random()*100 + 'vh';
+
+    star.style.animationDuration = (Math.random()*5+3)+'s';
+
+    stars.appendChild(star);
+}
+
+</script>
+
+</body>
+</html>
